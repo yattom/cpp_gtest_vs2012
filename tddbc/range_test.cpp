@@ -58,3 +58,20 @@ TEST(閉区間が等しいか, 等しくない場合) {
 	ASSERT_FALSE(closed_range_equal(r1, r2));
 }
 
+TEST(閉区間の接続, 離れている場合) {
+	closed_range r1 = create_closed_range(3, 8);
+	closed_range r2 = create_closed_range(9, 15);
+	ASSERT_FALSE(closed_range_connected(r1, r2));
+}
+
+TEST(閉区間の接続, range1の終了点とrange2の開始点が接する場合) {
+	closed_range r1 = create_closed_range(3, 8);
+	closed_range r2 = create_closed_range(8, 15);
+	ASSERT_TRUE(closed_range_connected(r1, r2));
+}
+
+TEST(閉区間の接続, range2の終了点とrange1の開始点が接する場合) {
+	closed_range r1 = create_closed_range(15, 20);
+	closed_range r2 = create_closed_range(8, 15);
+	ASSERT_TRUE(closed_range_connected(r1, r2));
+}

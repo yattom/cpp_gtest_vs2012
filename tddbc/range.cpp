@@ -29,3 +29,10 @@ int closed_range_equal(closed_range r1, closed_range r2)
 {
 	return r1.lower_endpoint == r2.lower_endpoint && r1.upper_endpoint == r2.upper_endpoint;
 }
+
+int closed_range_connected(closed_range r1, closed_range r2) {
+	if(r1.upper_endpoint == r2.lower_endpoint || r2.upper_endpoint == r1.lower_endpoint) {
+		return 1;
+	}
+	return 0;
+}
