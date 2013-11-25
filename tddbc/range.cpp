@@ -10,9 +10,9 @@ closed_range create_closed_range(int lower_endpoint, int upper_endpoint)
 	return created;
 }
 
-int contained_in_closed_range(closed_range r, int subject)
+int contained_in_closed_range(closed_range r, int point)
 {
-	return r.lower_endpoint <= subject && subject <= r.upper_endpoint;
+	return r.lower_endpoint <= point && point <= r.upper_endpoint;
 }
 
 const char* closed_range_to_str(closed_range r, char* buf)
@@ -43,8 +43,8 @@ open_range create_open_range(int lower_endpoint, int upper_endpoint)
 	return created;
 }
 
-int contained_in_open_range(open_range r, int subject)
+int contained_in_open_range(open_range r, int point)
 {
-	return r.lower_endpoint < subject && subject < r.upper_endpoint;
+	return r.lower_endpoint < point && point < r.upper_endpoint;
 }
 
