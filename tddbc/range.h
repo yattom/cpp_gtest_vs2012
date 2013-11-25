@@ -11,6 +11,7 @@ const char* closed_range_to_str(closed_range range, char* buf);
 int contained_in_closed_range(closed_range range, int point);
 int closed_range_equal(closed_range range1, closed_range range2);
 int closed_range_connected(closed_range range1, closed_range range2);
+closed_range* intersection_of_closed_ranges(closed_range range1, closed_range range2, closed_range* out);
 
 typedef struct _open_range {
 	int lower_endpoint;
