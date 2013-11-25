@@ -75,3 +75,18 @@ TEST(閉区間の接続, range2の終了点とrange1の開始点が接する場合) {
 	closed_range r2 = create_closed_range(8, 15);
 	ASSERT_TRUE(closed_range_connected(r1, r2));
 }
+
+TEST(開区間に含まれるか, 中間の場合) {
+	open_range r = create_open_range(3, 8);
+	ASSERT_TRUE(contained_in_open_range(r, 5));
+}
+
+TEST(開区間に含まれるか, 開始点の場合) {
+	open_range r = create_open_range(3, 8);
+	ASSERT_FALSE(contained_in_open_range(r, 3));
+}
+
+TEST(開区間に含まれるか, 終了点の場合) {
+	open_range r = create_open_range(3, 8);
+	ASSERT_FALSE(contained_in_open_range(r, 8));
+}

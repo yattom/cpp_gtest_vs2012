@@ -36,3 +36,15 @@ int closed_range_connected(closed_range r1, closed_range r2) {
 	}
 	return 0;
 }
+
+open_range create_open_range(int lower_endpoint, int upper_endpoint)
+{
+	open_range created = {lower_endpoint, upper_endpoint};
+	return created;
+}
+
+int contained_in_open_range(open_range r, int subject)
+{
+	return r.lower_endpoint < subject && subject < r.upper_endpoint;
+}
+

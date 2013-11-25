@@ -12,4 +12,13 @@ int contained_in_closed_range(closed_range range, int subject);
 int closed_range_equal(closed_range range1, closed_range range2);
 int closed_range_connected(closed_range range1, closed_range range2);
 
+typedef struct _open_range {
+	int lower_endpoint;
+	int upper_endpoint;
+} open_range;
+
+open_range create_open_range(int lower_endpoint, int upper_endpoint);
+int contained_in_open_range(open_range range, int subject);
+
+
 #endif
