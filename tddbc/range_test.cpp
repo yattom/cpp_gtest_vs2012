@@ -22,3 +22,8 @@ TEST(•Â‹æŠÔ‚ÉŠÜ‚Ü‚ê‚é‚©, ¬‚³‚·‚¬‚éê‡) {
 TEST(•Â‹æŠÔ‚ÉŠÜ‚Ü‚ê‚é‚©, ‘å‚«‚·‚¬‚éê‡) {
 	ASSERT_FALSE(contained_in_closed_range(3, 8, 9));
 }
+
+TEST(•Â‹æŠÔ‚ð•¶Žš—ñ‚É‚·‚é, ’Êí) {
+	char buf[20];
+	ASSERT_STREQ("(3,8)", closed_range_to_str(3, 8, buf));
+}
