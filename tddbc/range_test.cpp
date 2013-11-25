@@ -39,10 +39,14 @@ TEST(•Â‹æŠÔ‚ğ•¶š—ñ‚É‚·‚é, ŠJnI—¹‚ªˆê’v‚µ‚Ä‚à‚æ‚¢) {
 }
 
 TEST(•Â‹æŠÔ‚ª“™‚µ‚¢‚©, “™‚µ‚¢ê‡) {
-	ASSERT_TRUE(closed_range_equal(3, 8, 3, 8));
+	closed_range r1 = create_closed_range(3, 8);
+	closed_range r2 = create_closed_range(3, 8);
+	ASSERT_TRUE(closed_range_equal(r1, r2));
 }
 
 TEST(•Â‹æŠÔ‚ª“™‚µ‚¢‚©, “™‚µ‚­‚È‚¢ê‡) {
-	ASSERT_FALSE(closed_range_equal(3, 8, 3, 7));
+	closed_range r1 = create_closed_range(3, 8);
+	closed_range r2 = create_closed_range(3, 7);
+	ASSERT_FALSE(closed_range_equal(r1, r2));
 }
 
