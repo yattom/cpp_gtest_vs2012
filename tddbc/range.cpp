@@ -58,3 +58,9 @@ const char* open_range_to_str(open_range r, char* buf)
 	return buf;
 }
 
+int open_range_equal(open_range r1, open_range r2)
+{
+	return r1.lower_endpoint == r2.lower_endpoint && r1.upper_endpoint == r2.upper_endpoint;
+}
+
+

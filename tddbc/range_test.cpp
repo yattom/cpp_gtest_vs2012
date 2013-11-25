@@ -103,3 +103,15 @@ TEST(開区間を文字列にする, 開始終了が一致したらエラー) {
 	ASSERT_EQ(NULL, open_range_to_str(r, buf));
 }
 
+
+TEST(開区間が等しいか, 等しい場合) {
+	open_range r1 = create_open_range(3, 8);
+	open_range r2 = create_open_range(3, 8);
+	ASSERT_TRUE(open_range_equal(r1, r2));
+}
+
+TEST(開区間が等しいか, 等しくない場合) {
+	open_range r1 = create_open_range(3, 8);
+	open_range r2 = create_open_range(3, 7);
+	ASSERT_FALSE(open_range_equal(r1, r2));
+}
