@@ -63,4 +63,9 @@ int open_range_equal(open_range r1, open_range r2)
 	return r1.lower_endpoint == r2.lower_endpoint && r1.upper_endpoint == r2.upper_endpoint;
 }
 
-
+int open_range_connected(open_range r1, open_range r2) {
+	if(r1.upper_endpoint - 1 == r2.lower_endpoint || r2.upper_endpoint - 1 == r1.lower_endpoint) {
+		return 1;
+	}
+	return 0;
+}

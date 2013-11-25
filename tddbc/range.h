@@ -21,6 +21,7 @@ open_range create_open_range(int lower_endpoint, int upper_endpoint);
 const char* open_range_to_str(open_range range, char* buf);
 int contained_in_open_range(open_range range, int point);
 int open_range_equal(open_range range1, open_range range2);
+int open_range_connected(open_range range1, open_range range2);
 
 
 #endif

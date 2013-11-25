@@ -115,3 +115,21 @@ TEST(開区間が等しいか, 等しくない場合) {
 	open_range r2 = create_open_range(3, 7);
 	ASSERT_FALSE(open_range_equal(r1, r2));
 }
+
+TEST(開区間の接続, 離れている場合) {
+	open_range r1 = create_open_range(3, 8);
+	open_range r2 = create_open_range(9, 15);
+	ASSERT_FALSE(open_range_connected(r1, r2));
+}
+
+TEST(開区間の接続, range1の終了点とrange2の開始点が接する場合) {
+	open_range r1 = create_open_range(3, 8);
+	open_range r2 = create_open_range(7, 15);
+	ASSERT_TRUE(open_range_connected(r1, r2));
+}
+
+TEST(開区間の接続, range2の終了点とrange1の開始点が接する場合) {
+	open_range r1 = create_open_range(15, 20);
+	open_range r2 = create_open_range(8, 16);
+	ASSERT_TRUE(open_range_connected(r1, r2));
+}
