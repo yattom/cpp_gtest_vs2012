@@ -1,0 +1,10 @@
+Debug
+ipch
+*.obj
+*.pch
+*.bak
+*.BAK
+*~
+*.opensdf
+*.sdf
+*.suo
