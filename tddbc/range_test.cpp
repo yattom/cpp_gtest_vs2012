@@ -90,3 +90,16 @@ TEST(開区間に含まれるか, 終了点の場合) {
 	open_range r = create_open_range(3, 8);
 	ASSERT_FALSE(contained_in_open_range(r, 8));
 }
+
+TEST(開区間を文字列にする, 通常) {
+	char buf[20];
+	open_range r = create_open_range(3, 8);
+	ASSERT_STREQ("(3,8)", open_range_to_str(r, buf));
+}
+
+TEST(開区間を文字列にする, 開始終了が一致したらエラー) {
+	char buf[20];
+	open_range r = create_open_range(5, 5);
+	ASSERT_EQ(NULL, open_range_to_str(r, buf));
+}
+
