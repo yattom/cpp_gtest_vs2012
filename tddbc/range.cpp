@@ -10,27 +10,22 @@ closed_range create_closed_range(int lower_endpoint, int upper_endpoint)
 	return created;
 }
 
-int contained_in_closed_range(int lower_endpoint, int upper_endpoint, int subject)
+int contained_in_closed_range(closed_range r, int subject)
 {
-	return lower_endpoint <= subject && subject <= upper_endpoint;
+	return r.lower_endpoint <= subject && subject <= r.upper_endpoint;
 }
 
-const char* closed_range_to_str(int lower_endpoint, int upper_endpoint, char* buf)
+const char* closed_range_to_str(closed_range r, char* buf)
 {
-	if(lower_endpoint > upper_endpoint)
+	if(r.lower_endpoint > r.upper_endpoint)
 	{
 		return NULL;
 	}
-	sprintf(buf, "(%d,%d)", lower_endpoint, upper_endpoint);
+	sprintf(buf, "(%d,%d)", r.lower_endpoint, r.upper_endpoint);
 	return buf;
 }
 
-int closed_range_equal(int lower_endpoint_1, int upper_endpoint_1, int lower_endpoint_2, int upper_endpoint_2)
+int closed_range_equal(closed_range r1, closed_range r2)
 {
-	return lower_endpoint_1 == lower_endpoint_2 && upper_endpoint_1 == upper_endpoint_2;
-}
-
-int closed_range_equal(closed_range range1, closed_range range2)
-{
-	return closed_range_equal(range1.lower_endpoint, range1.upper_endpoint, range2.lower_endpoint, range2.upper_endpoint);
+	return r1.lower_endpoint == r2.lower_endpoint && r1.upper_endpoint == r2.upper_endpoint;
 }
