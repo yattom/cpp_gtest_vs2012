@@ -31,7 +31,7 @@ TEST(閉区間に含まれるか, 大きすぎる場合) {
 TEST(閉区間を文字列にする, 通常) {
 	char buf[20];
 	closed_range r = create_closed_range(3, 8);
-	ASSERT_STREQ("(3,8)", closed_range_to_str(r, buf));
+	ASSERT_STREQ("[3,8]", closed_range_to_str(r, buf));
 }
 
 TEST(閉区間を文字列にする, 逆転でエラー) {
@@ -43,7 +43,7 @@ TEST(閉区間を文字列にする, 逆転でエラー) {
 TEST(閉区間を文字列にする, 開始終了が一致してもよい) {
 	char buf[20];
 	closed_range r = create_closed_range(5, 5);
-	ASSERT_STREQ("(5,5)", closed_range_to_str(r, buf));
+	ASSERT_STREQ("[5,5]", closed_range_to_str(r, buf));
 }
 
 TEST(閉区間が等しいか, 等しい場合) {

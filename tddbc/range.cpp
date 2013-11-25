@@ -21,7 +21,7 @@ const char* closed_range_to_str(closed_range r, char* buf)
 	{
 		return NULL;
 	}
-	sprintf(buf, "(%d,%d)", r.lower_endpoint, r.upper_endpoint);
+	sprintf(buf, "[%d,%d]", r.lower_endpoint, r.upper_endpoint);
 	return buf;
 }
 
