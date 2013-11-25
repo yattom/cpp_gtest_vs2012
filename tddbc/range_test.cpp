@@ -37,3 +37,12 @@ TEST(•Â‹æŠÔ‚ð•¶Žš—ñ‚É‚·‚é, ŠJŽnI—¹‚ªˆê’v‚µ‚Ä‚à‚æ‚¢) {
 	char buf[20];
 	ASSERT_STREQ("(5,5)", closed_range_to_str(5, 5, buf));
 }
+
+TEST(•Â‹æŠÔ‚ª“™‚µ‚¢‚©, “™‚µ‚¢ê‡) {
+	ASSERT_TRUE(closed_range_equal(3, 8, 3, 8));
+}
+
+TEST(•Â‹æŠÔ‚ª“™‚µ‚¢‚©, “™‚µ‚­‚È‚¢ê‡) {
+	ASSERT_FALSE(closed_range_equal(3, 8, 3, 7));
+}
+

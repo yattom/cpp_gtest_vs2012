@@ -18,3 +18,8 @@ const char* closed_range_to_str(int lower_endpoint, int upper_endpoint, char* bu
 	sprintf(buf, "(%d,%d)", lower_endpoint, upper_endpoint);
 	return buf;
 }
+
+int closed_range_equal(int lower_endpoint_1, int upper_endpoint_1, int lower_endpoint_2, int upper_endpoint_2)
+{
+	return lower_endpoint_1 == lower_endpoint_2 && upper_endpoint_1 == upper_endpoint_2;
+}
