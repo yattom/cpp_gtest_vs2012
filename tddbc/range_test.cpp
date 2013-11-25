@@ -27,3 +27,13 @@ TEST(閉区間を文字列にする, 通常) {
 	char buf[20];
 	ASSERT_STREQ("(3,8)", closed_range_to_str(3, 8, buf));
 }
+
+TEST(閉区間を文字列にする, 逆転でエラー) {
+	char buf[20];
+	ASSERT_EQ(NULL, closed_range_to_str(8, 3, buf));
+}
+
+TEST(閉区間を文字列にする, 開始終了が一致してもよい) {
+	char buf[20];
+	ASSERT_STREQ("(5,5)", closed_range_to_str(5, 5, buf));
+}
