@@ -31,19 +31,19 @@ TEST(閉区間に含まれるか, 大きすぎる場合) {
 TEST(閉区間を文字列にする, 通常) {
 	char buf[20];
 	closed_range r = create_closed_range(3, 8);
-	ASSERT_STREQ("[3,8]", closed_range_to_str(r, buf));
+	ASSERT_STREQ("[3,8]", closed_range_to_str(r, buf, sizeof(buf)));
 }
 
 TEST(閉区間を文字列にする, 逆転でエラー) {
 	char buf[20];
 	closed_range r = create_closed_range(8, 3);
-	ASSERT_EQ(NULL, closed_range_to_str(r, buf));
+	ASSERT_EQ(NULL, closed_range_to_str(r, buf, sizeof(buf)));
 }
 
 TEST(閉区間を文字列にする, 開始終了が一致してもよい) {
 	char buf[20];
 	closed_range r = create_closed_range(5, 5);
-	ASSERT_STREQ("[5,5]", closed_range_to_str(r, buf));
+	ASSERT_STREQ("[5,5]", closed_range_to_str(r, buf, sizeof(buf)));
 }
 
 TEST(閉区間が等しいか, 等しい場合) {
@@ -94,13 +94,13 @@ TEST(開区間に含まれるか, 終了点の場合) {
 TEST(開区間を文字列にする, 通常) {
 	char buf[20];
 	open_range r = create_open_range(3, 8);
-	ASSERT_STREQ("(3,8)", open_range_to_str(r, buf));
+	ASSERT_STREQ("(3,8)", open_range_to_str(r, buf, sizeof(buf)));
 }
 
 TEST(開区間を文字列にする, 開始終了が一致したらエラー) {
 	char buf[20];
 	open_range r = create_open_range(5, 5);
-	ASSERT_EQ(NULL, open_range_to_str(r, buf));
+	ASSERT_EQ(NULL, open_range_to_str(r, buf, sizeof(buf)));
 }
 
 
@@ -139,7 +139,7 @@ TEST(閉区間の共通集合, 同じ区間の場合) {
 	closed_range r = create_closed_range(3, 8);
 	closed_range result;
 	closed_range* actual = intersection_of_closed_ranges(r, r, &result);
-	ASSERT_STREQ("[3,8]", closed_range_to_str(*actual, buf));
+	ASSERT_STREQ("[3,8]", closed_range_to_str(*actual, buf, sizeof(buf)));
 }
 
 TEST(閉区間の共通集合, 一部重なる場合_1番目が下) {
@@ -148,7 +148,7 @@ TEST(閉区間の共通集合, 一部重なる場合_1番目が下) {
 	closed_range r2 = create_closed_range(5, 12);
 	closed_range result;
 	closed_range* actual = intersection_of_closed_ranges(r1, r2, &result);
-	ASSERT_STREQ("[5,8]", closed_range_to_str(*actual, buf));
+	ASSERT_STREQ("[5,8]", closed_range_to_str(*actual, buf, sizeof(buf)));
 }
 
 TEST(閉区間の共通集合, 一部重なる場合_2番目が下) {
@@ -157,7 +157,7 @@ TEST(閉区間の共通集合, 一部重なる場合_2番目が下) {
 	closed_range r2 = create_closed_range(3, 8);
 	closed_range result;
 	closed_range* actual = intersection_of_closed_ranges(r1, r2, &result);
-	ASSERT_STREQ("[5,8]", closed_range_to_str(*actual, buf));
+	ASSERT_STREQ("[5,8]", closed_range_to_str(*actual, buf, sizeof(buf)));
 }
 
 TEST(閉区間の共通集合, 片方が包含される場合) {
@@ -166,7 +166,7 @@ TEST(閉区間の共通集合, 片方が包含される場合) {
 	closed_range r2 = create_closed_range(3, 8);
 	closed_range result;
 	closed_range* actual = intersection_of_closed_ranges(r1, r2, &result);
-	ASSERT_STREQ("[3,8]", closed_range_to_str(*actual, buf));
+	ASSERT_STREQ("[3,8]", closed_range_to_str(*actual, buf, sizeof(buf)));
 }
 
 TEST(閉区間の共通集合, 重ならない場合) {

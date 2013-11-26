@@ -18,13 +18,13 @@ int contained_in_closed_range(closed_range r, int point)
 	return r.lower_endpoint <= point && point <= r.upper_endpoint;
 }
 
-const char* closed_range_to_str(closed_range r, char* buf)
+const char* closed_range_to_str(closed_range r, char* buf, size_t bufsize)
 {
 	if(r.lower_endpoint > r.upper_endpoint)
 	{
 		return NULL;
 	}
-	sprintf(buf, "[%d,%d]", r.lower_endpoint, r.upper_endpoint);
+	_snprintf(buf, bufsize, "[%d,%d]", r.lower_endpoint, r.upper_endpoint);
 	return buf;
 }
 
@@ -51,13 +51,13 @@ int contained_in_open_range(open_range r, int point)
 	return r.lower_endpoint < point && point < r.upper_endpoint;
 }
 
-const char* open_range_to_str(open_range r, char* buf)
+const char* open_range_to_str(open_range r, char* buf, size_t bufsize)
 {
 	if(r.lower_endpoint >= r.upper_endpoint)
 	{
 		return NULL;
 	}
-	sprintf(buf, "(%d,%d)", r.lower_endpoint, r.upper_endpoint);
+	_snprintf(buf, bufsize, "(%d,%d)", r.lower_endpoint, r.upper_endpoint);
 	return buf;
 }
 
