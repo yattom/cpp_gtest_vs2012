@@ -2,8 +2,8 @@
 
 class ClosedRange {
 private:
-	int lower_endpoint;
-	int upper_endpoint;
+	const int lower_endpoint;
+	const int upper_endpoint;
 public:
 	ClosedRange(int lower_endpoint, int upper_endpoint);
 	int getLowerEndpoint() const;
