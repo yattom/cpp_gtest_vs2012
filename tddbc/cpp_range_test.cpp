@@ -14,3 +14,8 @@ TEST(•Â‹æŠÔ‚ğì¬‚Å‚«‚é, ã‰º‚ª‹t‚¾‚ÆƒGƒ‰[) {
 	ASSERT_THROW(ClosedRange(8, 3), RangeException);
 }
 
+TEST(•Â‹æŠÔ‚ğì¬‚Å‚«‚é, ã‰º‚ª“¯‚¶‚È‚çOK) {
+	ClosedRange range = ClosedRange(3, 3);
+	ASSERT_EQ(3, range.getLowerEndpoint());
+	ASSERT_EQ(3, range.getUpperEndpoint());
+}
