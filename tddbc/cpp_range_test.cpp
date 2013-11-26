@@ -9,8 +9,8 @@ TEST(•Â‹æŠÔ‚ğì¬‚Å‚«‚é, •’Ê‚Éì¬‚Å‚«‚é) {
 	ASSERT_EQ(3, range.getLowerEndpoint());
 	ASSERT_EQ(8, range.getUpperEndpoint());
 }
-
+ 
 TEST(•Â‹æŠÔ‚ğì¬‚Å‚«‚é, ã‰º‚ª‹t‚¾‚ÆƒGƒ‰[) {
-	ASSERT_ANY_THROW(ClosedRange(8, 3));
+	ASSERT_THROW(ClosedRange(8, 3), RangeException);
 }
 

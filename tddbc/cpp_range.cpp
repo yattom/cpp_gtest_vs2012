@@ -5,7 +5,7 @@
 ClosedRange::ClosedRange(int lower_endpoint, int upper_endpoint) 
 	: lower_endpoint(lower_endpoint), upper_endpoint(upper_endpoint)  {
 	if(lower_endpoint > upper_endpoint) {
-		throw 0;
+		throw RangeException();
 	}
 }
 
