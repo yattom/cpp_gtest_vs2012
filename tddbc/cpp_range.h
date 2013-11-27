@@ -11,6 +11,7 @@ public:
 	int getLowerEndpoint() const;
 	int getUpperEndpoint() const;
 	int contains(int point) const;
+	operator std::string() const;
 };
 
 class RangeException : std::exception {

@@ -36,3 +36,8 @@ TEST(•Â‹æŠÔ‚É“_‚ªŠÜ‚Ü‚ê‚é, ’[“_ã‚Ìê‡) {
 	ASSERT_TRUE(range.contains(3));
 	ASSERT_TRUE(range.contains(8));
 }
+
+TEST(•Â‹æŠÔ‚Ì•¶š—ñ‰», •¶š—ñ‰») {
+	ClosedRange range = ClosedRange(3, 8);
+	ASSERT_EQ("[3,8]", (std::string)range);
+}
