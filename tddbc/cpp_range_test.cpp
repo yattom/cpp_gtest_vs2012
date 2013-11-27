@@ -6,8 +6,8 @@
 
 TEST(閉区間を作成できる, 普通に作成できる) {
 	ClosedRange range = ClosedRange(3, 8);
-	ASSERT_EQ(3, range.getLowerEndpoint());
-	ASSERT_EQ(8, range.getUpperEndpoint());
+	ASSERT_EQ(3, range.lower_endpoint);
+	ASSERT_EQ(8, range.upper_endpoint);
 }
  
 TEST(閉区間を作成できる, 上下が逆だとエラー) {
@@ -16,8 +16,8 @@ TEST(閉区間を作成できる, 上下が逆だとエラー) {
 
 TEST(閉区間を作成できる, 上下が同じならOK) {
 	ClosedRange range = ClosedRange(3, 3);
-	ASSERT_EQ(3, range.getLowerEndpoint());
-	ASSERT_EQ(3, range.getUpperEndpoint());
+	ASSERT_EQ(3, range.lower_endpoint);
+	ASSERT_EQ(3, range.upper_endpoint);
 }
 
 TEST(閉区間に点が含まれる, 含まれる場合) {

@@ -10,14 +10,6 @@ ClosedRange::ClosedRange(int lower_endpoint, int upper_endpoint)
 	}
 }
 
-int ClosedRange::getLowerEndpoint() const {
-	return this->lower_endpoint;
-}
-
-int ClosedRange::getUpperEndpoint() const {
-	return this->upper_endpoint;
-}
-
 int ClosedRange::contains(int point) const {
 	return lower_endpoint <= point && point <= upper_endpoint;
 }
