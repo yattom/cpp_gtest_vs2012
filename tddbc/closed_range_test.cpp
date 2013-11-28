@@ -8,33 +8,129 @@ TEST(ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Í‰º’[“_‚Æã’[“_‚Ì‡‚Å’l‚ğæ‚é, ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Í‰
 	ClosedRange cr = ClosedRange(3, 8);
 }
 
-TEST(‰º’[“_‚ğæ“¾‚·‚é, ‰º’[“_‚ª‚R‚Å‚ ‚é)
+TEST(y•Â‹æŠÔzƒQƒbƒ^[ŠÖ”, ‰º’[“_‚ğ‚R‚Éİ’è‚µ‚½‚ç‚R‚ğæ“¾‚Å‚«‚é)
 {
 	ClosedRange cr = ClosedRange(3, 8);
 
 	ASSERT_EQ(3, cr.getLower());
 }
 
-
-TEST(ã’[“_‚ğæ“¾‚·‚é, ã’[“_‚ª‚W‚Å‚ ‚é)
+TEST(y•Â‹æŠÔzƒQƒbƒ^[ŠÖ”, ã’[“_‚ğ‚W‚Éİ’è‚µ‚½‚ç‚W‚ğæ“¾‚Å‚«‚é)
 {
 	ClosedRange cr = ClosedRange(3, 8);
 
 	ASSERT_EQ(8, cr.getUpper());
 }
 
-
-TEST(ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”, ‰º’[“_ƒã’[“_)
+TEST(y•Â‹æŠÔzƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”ƒ`ƒFƒbƒN, ‰º’[“_ƒã’[“_‚Ìê‡‚ÍƒGƒ‰[‚Æ‚µ‚Ä—áŠO‚ğ“Š‚°‚È‚¢)
 {
 	ASSERT_NO_THROW(ClosedRange(3, 8));
 }
 
-TEST(ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”, ‰º’[“_„ã’[“_)
+TEST(y•Â‹æŠÔzƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”ƒ`ƒFƒbƒN, ‰º’[“_„ã’[“_‚Ìê‡‚ÍƒGƒ‰[‚Æ‚µ‚Ä—áŠO‚ğ“Š‚°‚é)
 {
 	ASSERT_ANY_THROW(ClosedRange(8, 3));
 }
 
-TEST(ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”, ‰º’[“_ã’[“_)
+TEST(y•Â‹æŠÔzƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”ƒ`ƒFƒbƒN, ‰º’[“_ã’[“_‚Ìê‡‚ÍƒGƒ‰[‚Æ‚µ‚Ä—áŠO‚ğ“Š‚°‚È‚¢)
 {
 	ASSERT_NO_THROW(ClosedRange(3, 3));
 }
+
+TEST(y•Â‹æŠÔz‹æŠÔ“àŠO‚Ì”»’è, 3A8‚Ì‚Æ‚«5‚Í‹æŠÔ“à‚Å‚ ‚é)
+{
+	ClosedRange cr = ClosedRange(3, 8);
+	ASSERT_TRUE(cr.contains(5));
+}
+
+TEST(y•Â‹æŠÔz‹æŠÔ“àŠO‚Ì”»’è, 3A8‚Ì‚Æ‚«9‚Í‹æŠÔŠO‚Å‚ ‚é)
+{
+	ClosedRange cr = ClosedRange(3, 8);
+	ASSERT_FALSE(cr.contains(9));
+}
+
+TEST(y•Â‹æŠÔz‹æŠÔ“àŠO‚Ì”»’è, 3A8‚Ì‚Æ‚«2‚Í‹æŠÔŠO‚Å‚ ‚é)
+{
+	ClosedRange cr = ClosedRange(3, 8);
+	ASSERT_FALSE(cr.contains(2));
+}
+
+TEST(y•Â‹æŠÔz‹æŠÔ‰º’[‚Ì’l, 3A8‚Ì‚Æ‚«3‚Í‹æŠÔ“à‚Å‚ ‚é)
+{
+	ClosedRange cr = ClosedRange(3, 8);
+
+	ASSERT_TRUE(cr.contains(3));
+}
+
+TEST(y•Â‹æŠÔz‹æŠÔã’[‚Ì’l, 3A8‚Ì‚Æ‚«8‚Í‹æŠÔ“à‚Å‚ ‚é)
+{
+	ClosedRange cr = ClosedRange(3, 8);
+
+	ASSERT_TRUE(cr.contains(8));
+}
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚Ì”äŠr,“™‚µ‚¢ê‡‚ÍTrue‚ğ•Ô‚·_3`8‚Æ3`8)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(3, 8);
+
+	ASSERT_TRUE(cr_a.equals(cr_b));
+}
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚Ì”äŠr,“™‚µ‚­‚È‚¢ê‡‚Ífalse‚ğ•Ô‚·_3`8‚Æ1`6)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(1, 6);
+
+	ASSERT_FALSE(cr_a.equals(cr_b));
+}
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚ÌÚ‘±,‚Ü‚Á‚½‚­d‚È‚Á‚Ä‚¢‚È‚¢ê‡‚ÍFalse‚ğ•Ô‚·_3`8‚Æ1`2)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(1, 2);
+
+	ASSERT_FALSE(cr_a.isConnectedTo(cr_b));
+}
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚ÌÚ‘±,‚Ü‚Á‚½‚­d‚È‚Á‚Ä‚¢‚È‚¢ê‡‚ÍFalse‚ğ•Ô‚·_3`8‚Æ9`10)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(9, 10);
+
+	ASSERT_FALSE(cr_a.isConnectedTo(cr_b));
+}
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚ÌÚ‘±,•Â‹æŠÔA‚ÌãŒÀ‚Æ•Â‹æŠÔB‚Ì‰ºŒÀ‚ªˆê’v‚µ‚Ä‚¢‚éê‡‚ÍTrue‚ğ•Ô‚·)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(8, 10);
+
+	ASSERT_TRUE(cr_a.isConnectedTo(cr_b));
+}
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚ÌÚ‘±,•Â‹æŠÔA‚Ì‰ºŒÀ‚Æ•Â‹æŠÔB‚ÌãŒÀ‚ªˆê’v‚µ‚Ä‚¢‚éê‡‚ÍTrue‚ğ•Ô‚·)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(1, 3);
+
+	ASSERT_TRUE(cr_a.isConnectedTo(cr_b));
+}
+
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚ÌÚ‘±,•Â‹æŠÔA‚Ì”ÍˆÍ“à‚É•Â‹æŠÔB‚ª“ü‚è‚ñ‚Å‚¢‚éê‡‚ÍTrue‚ğ•Ô‚·)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(4, 6);
+
+	ASSERT_TRUE(cr_a.isConnectedTo(cr_b));
+}
+
+TEST(y•Â‹æŠÔz•Â‹æŠÔ“¯m‚ÌÚ‘±,•Â‹æŠÔA‚ª•Â‹æŠÔB‚Ì”ÍˆÍ“à‚É“ü‚è‚ñ‚Å‚¢‚éê‡‚ÍTrue‚ğ•Ô‚·)
+{
+	ClosedRange cr_a = ClosedRange(3, 8);
+	ClosedRange cr_b = ClosedRange(1, 10);
+
+	ASSERT_TRUE(cr_a.isConnectedTo(cr_b));
+}
+
